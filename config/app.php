@@ -123,4 +123,12 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // config/app.php
+
+    // 'providers' => [
+        
+    //     App\Providers\DataServiceProvider::class,
+    // ],
+
+
 ];

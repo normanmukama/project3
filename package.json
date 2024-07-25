@@ -15,7 +15,12 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^5.0.5",
+        "file-saver": "^2.0.5",
+        "html2pdf.js": "^0.10.2",
+        "jspdf": "^2.5.1",
         "vue": "^3.4.32",
-        "vue-router": "^4.4.0"
+        "vue-router": "^4.4.0",
+        "vue3-data-table": "^1.0.2",
+        "xlsx": "^0.18.5"
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/example', function () {
     return response()->json(['message' => 'Hello, world!']);
 });
+
+Route::post('/contacts', [ContactController::class, 'store']);
+// Route::get('/contacts', [ContactController::class, 'index']);
+
+Route::get('/get-contacts', [ContactController::class, 'index']);
