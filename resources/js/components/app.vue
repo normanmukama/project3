@@ -9,6 +9,7 @@
           <router-link to="/service" class="nav-item">Services</router-link>
           <router-link to="/location" class="nav-item">Location</router-link>
           <router-link to="/contact" class="nav-item">Contact</router-link>
+          <router-link to="/emis" class="nav-item">EMIS</router-link>
         </div>
         <div>
           <!-- Add any additional items like a logo or a search bar here -->
