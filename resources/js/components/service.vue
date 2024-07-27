@@ -1,6 +1,5 @@
 <template>
     <div>
-      <h1>Contacts</h1>
       <vue3-datatable :rows="contacts" :columns="cols"></vue3-datatable>
     </div>
   </template>
