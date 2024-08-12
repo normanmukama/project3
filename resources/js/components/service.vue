@@ -6,7 +6,7 @@
         @input="applyFilter"
         type="text"
         placeholder="Search..."
-        class="p-2 border border-gray-300 rounded"
+        class="p-2 border border-green-500 rounded"
       />
       <div>
         <button @click="exportToExcel" class="p-2 bg-green-500 text-white rounded">Excel</button>
@@ -14,6 +14,7 @@
         <button @click="exportToPDF" class="p-2 bg-red-500 text-white rounded ml-2">PDF</button>
       </div>
     </div>
+
     <vue3-datatable :rows="filteredContacts" :columns="cols" class="min-w-full divide-y divide-gray-200">
       <template #table="{ rows, columns }">
         <table class="min-w-full divide-y divide-gray-200">
@@ -26,12 +27,27 @@
               >
                 {{ column.title }}
               </th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
             <tr v-for="row in rows" :key="row.id" class="hover:bg-gray-100">
-              <td v-for="column in columns" :key="column.field" class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+              <td
+                v-for="column in columns"
+                :key="column.field"
+                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+              >
                 {{ row[column.field] }}
+                <span>
+                  <button class="px-2 py-1 text-white bg-blue-500 rounded mx-1">View</button>
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <button class="px-2 py-1 text-white bg-blue-500 rounded mx-1">View</button>
+                <button class="px-2 py-1 text-white bg-green-500 rounded mx-1">Edit</button>
+                <button class="px-2 py-1 text-white bg-purple-500 rounded mx-1">Del</button>
               </td>
             </tr>
           </tbody>
@@ -57,6 +73,7 @@ const cols = ref([
   { field: 'name', title: 'Name' },
   { field: 'email', title: 'Email' },
   { field: 'contact', title: 'Contact' },
+  {  title: 'Actions' },
 ]);
 
 const filteredContacts = computed(() => {
@@ -113,5 +130,5 @@ fetchContacts();
 </script>
 
 <style scoped>
-/* Add custom styles here */
+/* Add any additional custom styles here */
 </style>
