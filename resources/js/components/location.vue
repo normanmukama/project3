@@ -37,7 +37,7 @@
           <td
             v-for="column in cols"
             :key="column.field"
-            class="px-3 whitespace-nowrap text-sm text-gray-900"
+            class="px-3 py whitespace-nowrap text-sm text-gray-900"
           >
             {{ row[column.field] }}
           </td>
@@ -52,7 +52,7 @@
     </table>
 
     <!-- Pagination Controls -->
-    <div class="flex justify-between mt-4">
+    <div class="flex justify-evenly mt-4">
       <button
         @click="previousPage"
         :disabled="currentPage === 1"
