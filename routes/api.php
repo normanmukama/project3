@@ -27,3 +27,5 @@ Route::post('/contacts', [ContactController::class, 'store']);
 // Route::get('/contacts', [ContactController::class, 'index']);
 
 Route::get('/get-contacts', [ContactController::class, 'index']);
+
+Route::get('/', [ContactController::class, 'Test']);

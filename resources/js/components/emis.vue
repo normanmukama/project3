@@ -6,7 +6,7 @@
                 <div class="logo-mb">
                     <img src="../../../public/images/logo.png" alt="" class="logo-height">
                 </div>
-                <form class="text-white">
+                <form class="text-white" @submit.prevent="handleLogin">
                     <div class="mb-6">
                     <label class="block text-white text-sm font-bold mb-2" for="name">
                         Enter Email
@@ -16,20 +16,22 @@
                         id="name" 
                         type="text" 
                         placeholder="Email"
+                        v-model="email"
                     >
                     </div>
                     <div class="mb-4">
                     <div class="flex gap-6">
-                        <label class="block text-white text-sm font-bold mb-2" for="email">
+                        <label class="block text-white text-sm font-bold mb-2" for="password">
                         Enter password
                     </label>
                     <a href="3" class="block text-white text-sm font-bold mb-2 dark-white">Forgot password</a>
                     </div>
                     <input  
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                        id="email" 
-                        type="email" 
+                        id="password" 
+                        type="password" 
                         placeholder="Password"
+                        v-model="password"
                     >
                     </div>
                     
@@ -39,12 +41,12 @@
                         type="submit"
                     >
                     <i class="mdi mdi-logout"></i>
-                        Sign In
+                        Log In
                     </button>
                     </div>
                 </form>
                 <p class="mt-4 text-white new-emis-mb">
-                    <strong>
+                    <strong class="mr-6">
                         New To EMIS?
                     </strong>
                     <a href="#" class="dark-white">Register an account</a>
@@ -63,14 +65,37 @@
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        data(){
+            return {
+                email :'',
+                password: ''
+            }
+        },
+        methods: {
+        handleLogin(){
+            if (this.email && this.password) {
+                this.$router.push({ path: '/contact' }); // Use this instead of $this
+            } else {
+                alert('Please enter your email and password.'); // You can customize this message
+            }
+        }
+    }
+    }
+
+</script>
 <style>
 .background-1{
-    background-color: #004c66;
+    background-color: rgb(101, 137, 185);
 }
 
 .sign-in-btn{
     background-color: #228eb3;
-    width: 20px;
+    width: 7rem;
+    margin-top: 1rem;
+    margin-bottom:1rem;
 }
 .new-emis-mb{
     margin-bottom: 4rem;
@@ -79,10 +104,11 @@
     margin-bottom: 3rem;
 }
 .dark-white{
-    color: #7c8284;
+    color: white;
     font-size: 14px;
 }
 .logo-height{
     height: 4rem;
 }
+
 </style>

@@ -2,6 +2,13 @@
   <div>
     <vue3-datatable :rows="contacts" :columns="cols"></vue3-datatable>
   </div>
+  <div>
+    <li v-for="item in items" class="m-3">
+      {{ item.name }} <br>
+      {{ item.school }} <br>
+      {{ item.home }}
+    </li>
+  </div>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -27,6 +34,26 @@ async function fetchContacts() {
 }
 
 fetchContacts();
+
+
+// List rendering
+const items = ref([
+  {
+    name: 'NormanMukama',
+    school: 'Ruhanga Adventist school',
+    home: 'Ntungamo'
+  },
+  {
+    name: 'Prossy Hope',
+    school: 'Kinoni Hihg school',
+    home: 'Wampewo'
+  },
+  {
+    name: 'Henry Nahabwe',
+    school: 'Kyamate High school',
+    home: 'Nyongozi'
+  },
+])
 </script>
 
 

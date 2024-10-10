@@ -34,5 +34,10 @@ class ContactController extends Controller
         $contacts = Contact::all(); // Fetch all contacts from the database
         return response()->json($contacts); // Return data as JSON
     }
+
+    public function Test()
+    {
+        return view('test');
+    }
 }
 

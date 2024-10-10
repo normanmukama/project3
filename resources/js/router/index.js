@@ -7,12 +7,17 @@ import service from '../components/service.vue';
 import location from '../components/location.vue';
 import contact from '../components/contact.vue';
 import emis from "../components/emis.vue";
-
+import login from "../components/login.vue"
+// import login from "../components/app2.vue"
 
 const routes = [
     {
-        path:'/',
-        component: home
+        path: '/',
+        redirect: '/login', // Redirect to the login page by default
+    },
+    {
+        path:'/login',
+        component: login
     },
     {
         path:'/about',
@@ -33,7 +38,7 @@ const routes = [
     },
     {
         path:'/emis',
-        component:emis
+        component: home
     },
     {
         path:'/:pathMatch(.*)*',
